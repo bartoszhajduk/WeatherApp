@@ -1,4 +1,4 @@
-package com.example.weatherapp.Model.Entities
+package com.example.weatherapp.model.entities
 
 data class Weather (
         val id: Int,

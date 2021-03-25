@@ -2,23 +2,22 @@ package com.example.weatherapp
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.example.weatherapp.Model.Entities.Current
-import com.example.weatherapp.Model.Repository.WeatherRepository
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.launch
-import kotlin.coroutines.suspendCoroutine
+import com.example.weatherapp.viewmodel.WeatherViewModel
+import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
+import com.example.weatherapp.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
+    private val viewModel by lazy {
+        ViewModelProvider(this).get(WeatherViewModel::class.java)
+    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        val binding: ActivityMainBinding =
+            DataBindingUtil.setContentView(this, R.layout.activity_main)
 
-//        GlobalScope.launch {
-//            val current = WeatherRepository.getWeatherForCity("Gliwice")
-//            println(current.name + " " + current.main.temp )
-//        }
-
-
-
+        binding.lifecycleOwner = this
+        binding.viewmodel = viewModel
     }
 }
