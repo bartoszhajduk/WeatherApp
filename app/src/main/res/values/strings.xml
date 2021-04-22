@@ -6,6 +6,8 @@
     <string name="pressure">Pressure</string>
     <string name="sunrise">SunRise</string>
     <string name="sunset">Sunset</string>
-    <string name="date">Date</string>
+    <string name="date">01.01</string>
     <string name="description">Description</string>
+    <string name="example_date">01:01  01.01</string>
+    <string name="accessibility_mode">Accessibility Mode</string>
 </resources>

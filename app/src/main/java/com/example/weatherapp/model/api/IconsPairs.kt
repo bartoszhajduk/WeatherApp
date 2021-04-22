@@ -21,6 +21,7 @@ object IconPairs {
             Pair("13d", R.drawable.ic_snowflake),
             Pair("13n", R.drawable.ic_snowflake),
             Pair("50d", R.drawable.ic_mist),
-            Pair("50n", R.drawable.ic_mist)
+            Pair("50n", R.drawable.ic_mist),
+            Pair("error", R.drawable.ic_wifi_off_black_24dp)
     )
 }

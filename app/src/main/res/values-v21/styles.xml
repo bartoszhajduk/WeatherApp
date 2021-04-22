@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="MyButtonProperties" parent="android:Widget.ImageButton">
+        <item name="elevation">4dp</item>
+        <item name="backgroundTint">?attr/colorPrimary</item>
+        <item name="tint">?attr/colorOnPrimary</item>
+    </style>
+    <style name="MyEditTextProperties" parent="android:Widget.EditText">
+        <item name="backgroundTint">?attr/colorOnBackground</item>
+    </style>
+    <style name="MyVectorProperties">
+        <item name="tint">?attr/colorPrimary</item>
+    </style>
+    <style name="MyAccessibilityProperties">
+        <item name="android:textSize">27sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+    <style name="MyTextViewProperties">
+        <item name="android:paddingStart">5dp</item>
+        <item name="android:paddingEnd">5dp</item>
+    </style>
+</resources>

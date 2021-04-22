@@ -10,14 +10,15 @@ import retrofit2.awaitResponse
 class WeatherRepository {
     companion object {
         suspend fun getWeatherForCity(cityName: String): Current {
-            return WeatherAppService.api.getWeatherForCity("$cityName,pl", API_KEY,"metric")
+            return WeatherAppService.api.getWeatherForCity(cityName, API_KEY,"metric")
                 .awaitResponse().body() ?:
                 Current(
                     emptyList(),
                     Main(0.0,0.0),
                     0L,
                     Sys(0L,0L),
-                    ""
+                    "",
+                    0L
                 )
         }
     }

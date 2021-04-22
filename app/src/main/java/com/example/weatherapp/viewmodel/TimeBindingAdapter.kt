@@ -14,7 +14,7 @@ import java.util.*
 fun timeConverter(view: TextView, dt: Long)
 {
     val date = Date((dt + 3600) * 1000)
-    val sdf = SimpleDateFormat("HH:mm a")
+    val sdf = SimpleDateFormat("HH:mm")
     val currentDate: String = sdf.format(date)
     view.text = currentDate
 }

@@ -11,11 +11,12 @@ import java.time.OffsetTime
 import java.util.*
 
 @RequiresApi(Build.VERSION_CODES.N)
-@BindingAdapter("app:date")
+@BindingAdapter("app:dt")
 fun dateConverter(view: TextView, dt: Long)
 {
-    val date = Date((dt + 3600) * 1000)
-    val sdf = SimpleDateFormat("dd.MM\nHH:mm a")
+    val date = Date(dt * 1000)
+    val local = Locale("pl","PL")
+    val sdf = SimpleDateFormat("HH:mm  dd.MM", local)
     val currentDate: String = sdf.format(date)
 
     view.text = currentDate

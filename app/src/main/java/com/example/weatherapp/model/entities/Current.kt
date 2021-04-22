@@ -6,4 +6,5 @@ data class Current (
         val dt: Long,
         val sys: Sys,
         val name: String,
+        val timezone: Long
         )

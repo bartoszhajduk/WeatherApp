@@ -17,14 +17,12 @@
             android:id="@+id/textViewDate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
             android:layout_weight="2"
-            android:hint="@string/example_date"
             app:dt="@{viewmodel.currentWeather.dt}"
-            app:layout_constraintBottom_toTopOf="@id/imageView"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/textInputLayout" />
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/textViewSunSet"
+            app:layout_constraintStart_toEndOf="@+id/textViewSunRise"
+            app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
         <ImageView
             android:id="@+id/imageView3"
@@ -35,8 +33,9 @@
             app:layout_constraintBottom_toTopOf="@+id/textViewSunSet"
             app:layout_constraintDimensionRatio="1"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/imageView2"
-            app:layout_constraintTop_toBottomOf="@+id/linearLayout2"
+            app:layout_constraintStart_toEndOf="@id/imageView2"
+            app:layout_constraintTop_toBottomOf="@id/imageView"
+            app:layout_constraintVertical_weight="1"
             app:srcCompat="@drawable/ic_sunset" />
 
         <ImageView
@@ -50,7 +49,8 @@
             app:layout_constraintEnd_toStartOf="@+id/imageView3"
             app:layout_constraintHorizontal_chainStyle="spread_inside"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/linearLayout2"
+            app:layout_constraintTop_toBottomOf="@id/imageView"
+            app:layout_constraintVertical_weight="1"
             app:srcCompat="@drawable/ic_sunrise" />
 
         <com.google.android.material.textfield.TextInputLayout
@@ -58,15 +58,15 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            app:layout_constraintBottom_toTopOf="@id/textViewDate"
+            android:layout_marginBottom="16dp"
+            app:layout_constraintBottom_toTopOf="@id/imageView"
             app:layout_constraintEnd_toStartOf="@+id/button"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            >
+            app:layout_constraintTop_toTopOf="parent">
 
             <EditText
-                style="@style/MyEditTextProperties"
                 android:id="@+id/editTextCityName"
+                style="@style/MyEditTextProperties"
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
                 android:layout_marginStart="16dp"
@@ -91,15 +91,14 @@
             app:layout_constraintVertical_bias="1.0"
             app:srcCompat="@drawable/ic_search_24px" />
 
+
         <TextView
             android:id="@+id/textViewSunRise"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
             android:hint="@string/date"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@+id/imageView2"
-            app:layout_constraintHorizontal_chainStyle="spread_inside"
             app:layout_constraintStart_toStartOf="@+id/imageView2"
             app:layout_constraintTop_toBottomOf="@+id/imageView2"
             app:time="@{viewmodel.currentWeather.sys.sunrise}" />
@@ -108,7 +107,6 @@
             android:id="@+id/textViewSunSet"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
             android:hint="@string/date"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@+id/imageView3"
@@ -121,67 +119,64 @@
             style="@style/MyVectorProperties"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginBottom="16dp"
+            android:layout_marginBottom="8dp"
             app:image="@{viewmodel.currentWeather.weather[0].icon}"
-            app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
+            app:layout_constraintBottom_toTopOf="@+id/imageView2"
             app:layout_constraintDimensionRatio="1"
-            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/linearLayout2"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textViewDate" />
+            app:layout_constraintTop_toBottomOf="@+id/textInputLayout"
+            app:layout_constraintVertical_weight="3" />
 
         <LinearLayout
             android:id="@+id/linearLayout2"
             android:layout_width="wrap_content"
             android:layout_height="0dp"
-            android:layout_marginBottom="100dp"
             android:orientation="vertical"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintBottom_toBottomOf="@+id/imageView"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView">
+            app:layout_constraintStart_toEndOf="@+id/imageView"
+            app:layout_constraintTop_toTopOf="@+id/imageView">
 
             <TextView
                 android:id="@+id/textViewCityName"
+                style="@style/MyTextViewProperties"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="2"
                 android:hint="@string/name"
                 android:text="@{viewmodel.currentWeather.name}"
-                android:textAlignment="center"
-                style="@style/MyTextViewProperties"
-                />
+                android:textAlignment="center" />
 
             <TextView
                 android:id="@+id/textViewTemperature"
+                style="@style/MyTextViewProperties"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="2"
                 android:hint="@string/temperature"
                 android:textAlignment="center"
-                android:textAllCaps="false"
-                app:temp="@{viewmodel.currentWeather.main.temp}"
-                style="@style/MyTextViewProperties"/>
+                app:temp="@{viewmodel.currentWeather.main.temp}" />
 
             <TextView
                 android:id="@+id/textViewPressure"
+                style="@style/MyTextViewProperties"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="2"
                 android:hint="@string/pressure"
                 android:textAlignment="center"
-                app:pressure="@{viewmodel.currentWeather.main.pressure}"
-                style="@style/MyTextViewProperties"/>
+                app:pressure="@{viewmodel.currentWeather.main.pressure}" />
 
             <TextView
                 android:id="@+id/textDescription"
+                style="@style/MyTextViewProperties"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="2"
                 android:hint="@string/description"
                 android:text="@{viewmodel.currentWeather.weather[0].description}"
-                android:textAlignment="center"
-                style="@style/MyTextViewProperties"/>
+                android:textAlignment="center" />
         </LinearLayout>
 
 
